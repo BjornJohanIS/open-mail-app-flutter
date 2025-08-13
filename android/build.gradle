@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-rootProject.allprojects {
+allprojects {
     repositories {
         google()
         mavenCentral()
@@ -25,14 +25,18 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'com.homex.open_mail_app'  // <--- Added for AGP 7+
     compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
     defaultConfig {
         minSdkVersion 16
+        targetSdkVersion 31
     }
+
     lintOptions {
         disable 'InvalidPackage'
     }
